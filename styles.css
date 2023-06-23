@@ -1,0 +1,53 @@
+h1 {
+    text-align: center;
+}
+h2 {
+    text-align: center;
+}
+h3 {
+    text-align: center;
+}
+h4 {
+    text-align: center;
+}
+h5 {
+    text-align: center;
+}
+h6 {
+    text-align: center;
+}
+
+.paraha1{
+    background: rgba(217, 255, 0, 0.459);
+    font-size: 16pt;
+    color: rgba(0, 255, 13, 0.815);
+}
+.paraha2{
+    border: 5px solid yellowgreen;
+    border-radius: 10px;
+    font-size: 16pt;
+    margin-bottom: 60px;
+}
+.fol{
+    font-size: 16pt;
+    color: rgba(255, 0, 0, 0.815);
+    font-weight: 900;
+    font-family: 'Courier New';
+}
+.paraha3{
+    font-weight: bold;
+    font-size: 16pt;
+    font-family: 'Courier New';
+}
+img{
+    margin: auto;
+    display: block;
+}
+
+.paraha4{
+    font-style: italic;
+    text-align: center;
+    font-size: 24px;
+    font-family: 'Courier New';
+    text-shadow: 5px 5px green;
+}
