@@ -1,6 +1,9 @@
 from django.db import models
 from django.contrib import admin
 from django.utils.html import format_html
+from django.contrib.auth import get_user_model
+
+User = get_user_model()
 
 
 class Advertisement(models.Model):
@@ -10,6 +13,8 @@ class Advertisement(models.Model):
     auction = models.BooleanField("торг", help_text="Отметьте, если торг уместен")
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+    user = models.ForeignKey(User, verbose_name='пользователь', on_delete=models.CASCADE)
+    image = models.ImageField('изображение', upload_to='advertisements')
 
     @admin.display(description='последнее обновление')
     def updated_date(self):
@@ -28,6 +33,12 @@ class Advertisement(models.Model):
             return format_html('<span style="color: green; font-weight: bold;">Сегодня в {}</span>', created_time)
         
         return self.created_at.strftime("%d.%m.%Y в %H:%M:%S")
+    
+        
+    @admin.display(description='фото')
+    def get_html_image(self):
+        if self.image:
+            return format_html('<img src ="{url}" width="100" height="100">', url=self.image.url)  
 
     def __str__(self):
         return f"Advertisement(id={self.id}, title={self.title}, price={self.price})"
