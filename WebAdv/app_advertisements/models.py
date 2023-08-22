@@ -7,7 +7,7 @@ User = get_user_model()
 
 
 class Advertisement(models.Model):
-    title = models.CharField("заголовок", max_length=128)
+    title = models.CharField("заголовок", max_length=12)
     description = models.TextField("описание")
     price = models.DecimalField("цена", max_digits=10, decimal_places=2)
     auction = models.BooleanField("торг", help_text="Отметьте, если торг уместен")
@@ -38,7 +38,7 @@ class Advertisement(models.Model):
     @admin.display(description='фото')
     def get_html_image(self):
         if self.image:
-            return format_html('<img src ="{url}" width="100" height="100">', url=self.image.url)  
+            return format_html('<img src ="{url}" width="80" height="80">', url=self.image.url)  
 
     def __str__(self):
         return f"Advertisement(id={self.id}, title={self.title}, price={self.price})"
